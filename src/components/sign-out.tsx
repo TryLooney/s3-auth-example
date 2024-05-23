@@ -1,15 +1,15 @@
-import { signIn } from "@/server/auth";
+import { signOut } from "@/server/auth";
 import { Button } from "./ui/button";
 
-export function SignIn() {
+export function SignOut() {
   return (
     <form
       action={async () => {
         "use server";
-        await signIn("github");
+        await signOut();
       }}
     >
-      <Button type="submit">Sign In</Button>
+      <Button type="submit">Sign Out</Button>
     </form>
   );
 }

@@ -1,5 +1,8 @@
 import "@/styles/globals.css";
 
+import { Providers } from "@/components/providers";
+import { cn } from "@/lib/utils";
+import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
 export const metadata = {
@@ -14,8 +17,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+    <html lang="pt-BR">
+      <body
+        className={cn(
+          "bg-background min-h-screen font-sans antialiased",
+          GeistSans.variable,
+          GeistMono.variable,
+        )}
+      >
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

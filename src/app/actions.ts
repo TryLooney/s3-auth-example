@@ -47,11 +47,6 @@ export async function updateAvatar(
 
   await minio.putObject("avatars", `avatar-${session.user.id}`, avatar);
 
-  const response = await minio.getObject(
-    "avatars",
-    `avatar-${session.user.id}`,
-  );
-
   const avatarUrl = await minio.presignedUrl(
     "GET",
     "avatars",
